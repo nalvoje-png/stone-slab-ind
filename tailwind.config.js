@@ -1,0 +1,61 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(var(--background))",
+        surface: "hsl(var(--surface))",
+        foreground: "hsl(var(--foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
+        primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
+        "primary-soft": "hsl(var(--primary-soft))",
+        secondary: "hsl(var(--secondary))",
+        "secondary-foreground": "hsl(var(--secondary-foreground))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        accent: "hsl(var(--accent))",
+        "accent-foreground": "hsl(var(--accent-foreground))",
+        success: "hsl(var(--success))",
+        "success-soft": "hsl(var(--success-soft))",
+        warning: "hsl(var(--warning))",
+        "warning-soft": "hsl(var(--warning-soft))",
+        destructive: "hsl(var(--destructive))",
+        "destructive-soft": "hsl(var(--destructive-soft))",
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        "brand-from": "hsl(var(--brand-from))",
+        "brand-to": "hsl(var(--brand-to))",
+      },
+      fontFamily: {
+        display: ['Fraunces', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        display: ["2.5rem", { lineHeight: "1.1", fontWeight: "600" }],
+        h1: ["1.75rem", { lineHeight: "1.2", fontWeight: "600" }],
+        h2: ["1.375rem", { lineHeight: "1.25", fontWeight: "600" }],
+        h3: ["1.125rem", { lineHeight: "1.3", fontWeight: "600" }],
+        title: ["1rem", { lineHeight: "1.4", fontWeight: "600" }],
+        body: ["0.9375rem", { lineHeight: "1.6" }],
+        caption: ["0.8125rem", { lineHeight: "1.5" }],
+      },
+      backgroundImage: {
+        brand: "linear-gradient(150deg, hsl(var(--brand-from)), hsl(var(--brand-to)))",
+      },
+      keyframes: {
+        "fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
+        "fade-up": { from: { opacity: "0", transform: "translateY(8px)" }, to: { opacity: "1", transform: "translateY(0)" } },
+      },
+      animation: {
+        "fade-in": "fade-in 0.3s ease-out",
+        "fade-up": "fade-up 0.4s ease-out",
+      },
+    },
+  },
+  plugins: [],
+};

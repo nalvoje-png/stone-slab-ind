@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "heroTitle": "A rede da indústria mundial de rochas ornamentais",
+    "heroTag": "The Global Stone Network",
+    "signIn": "Entrar", "signInSubtitle": "Acesse sua conta para continuar",
+    "email": "E-mail", "password": "Senha", "signingIn": "Entrando...",
+    "noAccount": "Ainda não tem conta?", "createNow": "Criar agora",
+    "error": "Não foi possível entrar", "back": "Voltar",
+    "signUp": "Criar conta", "signUpSubtitle": "Cadastre sua empresa",
+    "companyName": "Nome da empresa", "creating": "Criando...", "create": "Criar conta",
+    "haveAccount": "Já tem conta?", "signInNow": "Entrar"
+  },
+  "nav": {
+    "dashboard": "Dashboard", "materials": "Materiais", "slabs": "Chapas",
+    "sales": "Vendas", "orders": "Pedidos de compra", "team": "Equipe", "signOut": "Sair"
+  },
+  "dash": {
+    "hello": "Olá", "materials": "Materiais", "slabs": "Chapas",
+    "available": "Disponíveis", "reserved": "Reservadas", "sold": "Vendidas",
+    "soon": "Em breve mais indicadores aqui."
+  },
+  "config": {
+    "title": "Configuração necessária",
+    "desc": "Defina as variáveis VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY no arquivo .env e reinicie."
+  }
+}
