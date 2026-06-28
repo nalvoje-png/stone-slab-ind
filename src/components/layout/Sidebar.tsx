@@ -28,19 +28,10 @@ export function Sidebar() {
   }
 
   const company = (user?.user_metadata?.company_name as string) ?? user?.email ?? "";
-  const initial = (company || "?").charAt(0).toUpperCase();
 
   return (
-    <aside className="fixed inset-y-0 left-0 hidden w-64 flex-col bg-card lg:flex">
-      {/* Topo com logo */}
-      <div className="flex items-center gap-2.5 px-5 py-5">
-        <img src="/logo-icon.png" alt="" className="h-8 w-8 rounded-lg" />
-        <span className="font-display text-[18px] font-semibold text-foreground">
-          Stone Slab <span className="text-primary">IND</span>
-        </span>
-      </div>
-
-      <div className="px-5 pb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+    <aside className="fixed inset-y-0 left-0 top-16 hidden w-64 flex-col border-r border-border bg-surface lg:flex">
+      <div className="px-5 pb-2 pt-5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
         {t("nav.menu", "Menu")}
       </div>
 
@@ -52,8 +43,8 @@ export function Sidebar() {
             end={to === "/"}
             className={({ isActive }) =>
               cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] font-medium transition-colors",
-                isActive ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] font-semibold transition-colors",
+                isActive ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-secondary hover:text-foreground"
               )
             }
           >
@@ -63,17 +54,16 @@ export function Sidebar() {
         ))}
       </nav>
 
-      {/* Rodapé: usuário + sair */}
       <div className="border-t border-border p-3">
         <div className="flex items-center gap-3 px-2 py-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-[14px] font-semibold text-primary-foreground">
-            {initial}
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-[14px] font-bold text-primary-foreground">
+            {(company || "?").charAt(0).toUpperCase()}
           </div>
-          <span className="truncate text-[14px] font-semibold text-foreground">{company}</span>
+          <span className="truncate text-[14px] font-bold text-foreground">{company}</span>
         </div>
         <button
           onClick={handleSignOut}
-          className="mt-1 flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-[14px] font-medium text-destructive transition-colors hover:bg-destructive-soft"
+          className="mt-1 flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-[14px] font-semibold text-destructive transition-colors hover:bg-destructive-soft"
         >
           <LogOut className="h-[18px] w-[18px]" /> {t("nav.signOut")}
         </button>

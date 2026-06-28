@@ -7,7 +7,6 @@ export function DashboardPage() {
   const { user } = useAuth();
   const company = (user?.user_metadata?.company_name as string) ?? "";
 
-  // Indicadores virão das tabelas reais nas próximas fatias.
   const cards = [
     { label: t("dash.materials"), value: "—", icon: Package },
     { label: t("dash.slabs"), value: "—", icon: Layers },
@@ -18,27 +17,27 @@ export function DashboardPage() {
   return (
     <div className="animate-fade-up">
       <header className="mb-6">
-        <h1 className="font-display text-display text-foreground">
+        <h1 className="text-display uppercase text-foreground">
           {t("dash.hello")}{company ? `, ${company}` : ""}!
         </h1>
       </header>
 
-      {/* Faixa de destaque (estilo Stone Block) */}
-      <div className="mb-5 overflow-hidden rounded-2xl bg-gradient-to-r from-success to-success/70 p-6">
-        <div className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-white/90">
+      {/* Faixa verde de destaque (estilo Stone Block) */}
+      <div className="mb-5 overflow-hidden rounded-xl bg-gradient-to-r from-success to-success/80 p-6 shadow-card">
+        <div className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/90">
           <DollarSign className="h-4 w-4" /> {t("dash.sold")}
         </div>
-        <div className="mt-1 font-display text-3xl font-700 text-white">$0.00</div>
+        <div className="mt-1 text-3xl font-extrabold text-white">$0.00</div>
       </div>
 
       {/* Cards de indicadores */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {cards.map((c) => (
-          <div key={c.label} className="rounded-2xl border border-border bg-card p-5">
-            <div className="flex items-center gap-2 text-[13px] text-muted-foreground">
+          <div key={c.label} className="rounded-xl border border-border bg-card p-5 shadow-card transition-shadow hover:shadow-cardhover">
+            <div className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground">
               <c.icon className="h-4 w-4" /> {c.label}
             </div>
-            <div className="mt-2 font-display text-3xl font-700 text-foreground">{c.value}</div>
+            <div className="mt-2 text-3xl font-extrabold text-foreground">{c.value}</div>
           </div>
         ))}
       </div>
