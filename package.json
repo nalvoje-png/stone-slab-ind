@@ -1,7 +1,7 @@
 {
   "name": "stoneslab-ind",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
     "react-dom": "^19.2.7",
     "react-i18next": "^17.0.8",
     "react-router-dom": "^7.18.0",
+    "recharts": "^3.9.0",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {

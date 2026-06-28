@@ -20,6 +20,8 @@ export default {
         "accent-foreground": "hsl(var(--accent-foreground))",
         success: "hsl(var(--success))",
         "success-soft": "hsl(var(--success-soft))",
+        emerald: "hsl(var(--emerald))",
+        "emerald-light": "hsl(var(--emerald-light))",
         warning: "hsl(var(--warning))",
         "warning-soft": "hsl(var(--warning-soft))",
         destructive: "hsl(var(--destructive))",

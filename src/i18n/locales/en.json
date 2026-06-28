@@ -2,22 +2,45 @@
   "auth": {
     "heroTitle": "The network of the global ornamental stone industry",
     "heroTag": "The Global Stone Network",
-    "signIn": "Sign in", "signInSubtitle": "Access your account to continue",
-    "email": "Email", "password": "Password", "signingIn": "Signing in...",
-    "noAccount": "No account yet?", "createNow": "Create now",
-    "error": "Could not sign in", "back": "Back",
-    "signUp": "Create account", "signUpSubtitle": "Register your company",
-    "companyName": "Company name", "creating": "Creating...", "create": "Create account",
-    "haveAccount": "Already have an account?", "signInNow": "Sign in"
+    "signIn": "Sign in",
+    "signInSubtitle": "Access your account to continue",
+    "email": "Email",
+    "password": "Password",
+    "signingIn": "Signing in...",
+    "noAccount": "No account yet?",
+    "createNow": "Create now",
+    "error": "Could not sign in",
+    "back": "Back",
+    "signUp": "Create account",
+    "signUpSubtitle": "Register your company",
+    "companyName": "Company name",
+    "creating": "Creating...",
+    "create": "Create account",
+    "haveAccount": "Already have an account?",
+    "signInNow": "Sign in"
   },
   "nav": {
-    "dashboard": "Dashboard", "materials": "Materials", "slabs": "Slabs",
-    "sales": "Sales", "orders": "Purchase orders", "team": "Team", "signOut": "Sign out"
+    "dashboard": "Dashboard",
+    "materials": "Materials",
+    "slabs": "Slabs",
+    "sales": "Sales",
+    "orders": "Purchase orders",
+    "team": "Team",
+    "signOut": "Sign out"
   },
   "dash": {
-    "hello": "Hello", "materials": "Materials", "slabs": "Slabs",
-    "available": "Available", "reserved": "Reserved", "sold": "Sold",
-    "soon": "More indicators coming soon."
+    "hello": "Hello",
+    "materials": "Materials",
+    "slabs": "Slabs",
+    "available": "Available",
+    "reserved": "Reserved",
+    "sold": "Sold",
+    "soon": "More indicators coming soon.",
+    "distribution": "Stock distribution",
+    "distributionDesc": "Slabs by status",
+    "monthly": "Production by month",
+    "monthlyDesc": "Slabs registered",
+    "noData": "No data yet — register slabs to see the charts."
   },
   "config": {
     "title": "Configuration required",
