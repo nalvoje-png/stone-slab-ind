@@ -16,18 +16,18 @@ export function DashboardPage() {
 
   return (
     <div className="animate-fade-up">
-      <header className="mb-6">
-        <h1 className="text-display uppercase text-foreground">
+      <header className="mb-5">
+        <h1 className="text-h1 uppercase text-foreground">
           {t("dash.hello")}{company ? `, ${company}` : ""}!
         </h1>
       </header>
 
       {/* Faixa verde de destaque (estilo Stone Block) */}
-      <div className="mb-5 overflow-hidden rounded-xl bg-gradient-to-r from-success to-success/80 p-6 shadow-card">
-        <div className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-white/90">
-          <DollarSign className="h-4 w-4" /> {t("dash.sold")}
+      <div className="mb-5 overflow-hidden rounded-xl bg-gradient-to-r from-success to-success/80 px-5 py-4 shadow-card">
+        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-white/90">
+          <DollarSign className="h-3.5 w-3.5" /> {t("dash.sold")}
         </div>
-        <div className="mt-1 text-3xl font-extrabold text-white">$0.00</div>
+        <div className="mt-0.5 text-2xl font-extrabold text-white">$0.00</div>
       </div>
 
       {/* Cards de indicadores */}
@@ -37,7 +37,7 @@ export function DashboardPage() {
             <div className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground">
               <c.icon className="h-4 w-4" /> {c.label}
             </div>
-            <div className="mt-2 text-3xl font-extrabold text-foreground">{c.value}</div>
+            <div className="mt-2 text-2xl font-extrabold text-foreground">{c.value}</div>
           </div>
         ))}
       </div>
