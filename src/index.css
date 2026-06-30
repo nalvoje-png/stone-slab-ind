@@ -47,7 +47,7 @@
     --input: 190 30% 82%;
     --ring: 200 90% 45%;
 
-    --radius: 1.25rem;
+    --radius: 0.875rem;
 
     /* Vidro */
     --glass-bg: 255 255 255;            /* base branca do vidro (usado com opacidade) */

@@ -50,7 +50,7 @@ export function DashboardPage() {
         </h1>
       </header>
 
-      <div className="mb-4 flex items-center justify-between overflow-hidden rounded-3xl bg-gradient-to-r from-emerald to-success px-5 py-4 shadow-lg">
+      <div className="mb-4 flex items-center justify-between overflow-hidden rounded-2xl bg-gradient-to-r from-emerald to-success px-5 py-4 shadow-lg">
         <div>
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-white/90">
             <DollarSign className="h-3.5 w-3.5" /> {t("dash.sold")}
@@ -62,7 +62,7 @@ export function DashboardPage() {
 
       <div className="mb-4 grid grid-cols-2 gap-4">
         {cards.map((c) => (
-          <div key={c.label} className="glass rounded-3xl p-5">
+          <div key={c.label} className="glass rounded-2xl p-5">
             <div className="flex items-center gap-2 text-[13px] font-semibold text-muted-foreground">
               <c.icon className="h-4 w-4" /> {c.label}
             </div>
@@ -75,7 +75,7 @@ export function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="glass rounded-3xl p-5">
+        <div className="glass rounded-2xl p-5">
           <h3 className="mb-1 text-title text-foreground">{t("dash.distribution")}</h3>
           <p className="mb-3 text-caption text-muted-foreground">{t("dash.distributionDesc")}</p>
           {hasPie ? (
@@ -102,7 +102,7 @@ export function DashboardPage() {
           )}
         </div>
 
-        <div className="glass rounded-3xl p-5">
+        <div className="glass rounded-2xl p-5">
           <h3 className="mb-1 text-title text-foreground">{t("dash.monthly")}</h3>
           <p className="mb-3 text-caption text-muted-foreground">{t("dash.monthlyDesc")}</p>
           <ResponsiveContainer width="100%" height={160}>
