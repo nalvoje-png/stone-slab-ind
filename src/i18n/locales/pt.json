@@ -65,5 +65,35 @@
     "confirmDelete": "Excluir este material?",
     "emptyTitle": "Nenhum material ainda",
     "emptyDesc": "Cadastre seu primeiro material para começar."
+  },
+  "slab": {
+    "new": "Nova chapa",
+    "backToMaterials": "Voltar aos materiais",
+    "modeSingle": "1 chapa",
+    "modeBatch": "Lote (até 7)",
+    "length": "Comprimento",
+    "height": "Altura",
+    "priceSqm": "Preço/m² (USD)",
+    "priceSqft": "Preço/pé² (USD)",
+    "code": "Código da chapa",
+    "photo": "Foto da chapa",
+    "batchTitle": "Chapas do lote (até {{max}}) — mesmas medidas e preço",
+    "photoPick": "Foto",
+    "photoOk": "Foto",
+    "addRow": "Adicionar chapa",
+    "batchNeedCode": "Informe ao menos um código de chapa.",
+    "save": "Salvar chapa",
+    "saveBatch": "Salvar lote",
+    "saving": "Salvando...",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "confirmDelete": "Excluir esta chapa?",
+    "emptyTitle": "Nenhuma chapa ainda",
+    "emptyDesc": "Adicione chapas a este material.",
+    "status": {
+      "disponivel": "Disponível",
+      "reservada": "Reservada",
+      "vendida": "Vendida"
+    }
   }
 }

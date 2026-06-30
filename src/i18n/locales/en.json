@@ -65,5 +65,35 @@
     "confirmDelete": "Delete this material?",
     "emptyTitle": "No materials yet",
     "emptyDesc": "Add your first material to start."
+  },
+  "slab": {
+    "new": "New slab",
+    "backToMaterials": "Back to materials",
+    "modeSingle": "1 slab",
+    "modeBatch": "Batch (up to 7)",
+    "length": "Length",
+    "height": "Height",
+    "priceSqm": "Price/m² (USD)",
+    "priceSqft": "Price/ft² (USD)",
+    "code": "Slab code",
+    "photo": "Slab photo",
+    "batchTitle": "Batch slabs (up to {{max}}) — same measures and price",
+    "photoPick": "Photo",
+    "photoOk": "Photo",
+    "addRow": "Add slab",
+    "batchNeedCode": "Enter at least one slab code.",
+    "save": "Save slab",
+    "saveBatch": "Save batch",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirmDelete": "Delete this slab?",
+    "emptyTitle": "No slabs yet",
+    "emptyDesc": "Add slabs to this material.",
+    "status": {
+      "disponivel": "Available",
+      "reservada": "Reserved",
+      "vendida": "Sold"
+    }
   }
 }

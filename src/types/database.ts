@@ -16,3 +16,19 @@ export interface Material {
   price_sqft: number | null;
   created_at: string;
 }
+
+export type SlabStatus = "disponivel" | "reservada" | "vendida";
+
+export interface Slab {
+  id: string;
+  company_id: string;
+  material_id: string;
+  code: string;
+  photo_path: string | null;
+  length_m: number | null;
+  height_m: number | null;
+  price_sqm: number | null;
+  price_sqft: number | null;
+  status: SlabStatus;
+  created_at: string;
+}
