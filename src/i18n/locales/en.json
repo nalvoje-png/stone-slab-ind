@@ -45,5 +45,25 @@
   "config": {
     "title": "Configuration required",
     "desc": "Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in the .env file and restart."
+  },
+  "mat": {
+    "new": "New material",
+    "name": "Material name",
+    "thickness": "Thickness",
+    "finish": "Finish",
+    "selectFinish": "Select...",
+    "addFinish": "Add finish",
+    "newFinish": "New finish",
+    "priceSqm": "Price per m²",
+    "priceSqft": "Price per ft²",
+    "priceHint": "{{sqm}}/m² • {{sqft}}/ft² (filled automatically)",
+    "cover": "Cover photo",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirmDelete": "Delete this material?",
+    "emptyTitle": "No materials yet",
+    "emptyDesc": "Add your first material to start."
   }
 }

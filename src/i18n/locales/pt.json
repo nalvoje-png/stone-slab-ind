@@ -45,5 +45,25 @@
   "config": {
     "title": "Configuração necessária",
     "desc": "Defina as variáveis VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY no arquivo .env e reinicie."
+  },
+  "mat": {
+    "new": "Novo material",
+    "name": "Nome do material",
+    "thickness": "Espessura",
+    "finish": "Acabamento",
+    "selectFinish": "Selecione...",
+    "addFinish": "Adicionar acabamento",
+    "newFinish": "Novo acabamento",
+    "priceSqm": "Preço por m²",
+    "priceSqft": "Preço por pé²",
+    "priceHint": "{{sqm}}/m² • {{sqft}}/pé² (preenchido automaticamente)",
+    "cover": "Foto de capa",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "confirmDelete": "Excluir este material?",
+    "emptyTitle": "Nenhum material ainda",
+    "emptyDesc": "Cadastre seu primeiro material para começar."
   }
 }

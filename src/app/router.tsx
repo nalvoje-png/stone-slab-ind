@@ -5,6 +5,7 @@ import { SignupPage } from "@/features/auth/components/SignupPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { AppShell } from "@/components/layout/AppShell";
 import { DashboardPage } from "@/features/dashboard/DashboardPage";
+import { MaterialsPage } from "@/features/materials/components/MaterialsPage";
 import { Placeholder } from "@/components/shared/Placeholder";
 
 function Protected({ children }: { children: React.ReactNode }) {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
   { path: "/", element: <Protected><DashboardPage /></Protected> },
-  { path: "/materials", element: <Protected><Soon tkey="materials" /></Protected> },
+  { path: "/materials", element: <Protected><MaterialsPage /></Protected> },
   { path: "/slabs", element: <Protected><Soon tkey="slabs" /></Protected> },
   { path: "/sales", element: <Protected><Soon tkey="sales" /></Protected> },
   { path: "/orders", element: <Protected><Soon tkey="orders" /></Protected> },
