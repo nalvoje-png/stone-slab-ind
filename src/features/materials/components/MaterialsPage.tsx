@@ -27,8 +27,8 @@ export function MaterialsPage() {
       {showForm && <MaterialForm onDone={() => setShowForm(false)} />}
 
       {isLoading ? (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => <div key={i} className="aspect-[4/3] animate-pulse rounded-2xl bg-white/30" />)}
+        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+          {Array.from({ length: 6 }).map((_, i) => <div key={i} className="aspect-[4/3] animate-pulse rounded-2xl bg-white/30" />)}
         </div>
       ) : materials.length === 0 ? (
         <div className="glass rounded-2xl p-10 text-center">
@@ -37,7 +37,7 @@ export function MaterialsPage() {
           <p className="mt-1 text-body text-muted-foreground">{t("mat.emptyDesc")}</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
           {materials.map((m) => (
             <div key={m.id} className="glass group relative overflow-hidden rounded-2xl">
               <button onClick={() => navigate(`/materials/${m.id}`)} className="block w-full text-left">
@@ -45,16 +45,16 @@ export function MaterialsPage() {
                   {m.cover_path ? (
                     <img src={materialPhotoUrl(m.cover_path)} alt={m.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   ) : (
-                    <div className="flex h-full items-center justify-center"><Package className="h-8 w-8 text-muted-foreground" /></div>
+                    <div className="flex h-full items-center justify-center"><Package className="h-7 w-7 text-muted-foreground" /></div>
                   )}
                 </div>
-                <div className="p-3.5">
-                  <div className="text-[15px] font-bold text-foreground">{m.name}</div>
-                  <div className="mt-0.5 text-[12.5px] text-muted-foreground">
+                <div className="p-2.5">
+                  <div className="truncate text-[13.5px] font-bold text-foreground">{m.name}</div>
+                  <div className="mt-0.5 truncate text-[11.5px] text-muted-foreground">
                     {[m.thickness, m.finish].filter(Boolean).join(" • ") || "—"}
                   </div>
                   {m.price_sqm != null && (
-                    <div className="mt-1.5 text-[13px] font-semibold text-success">{usd(m.price_sqm)}/m²</div>
+                    <div className="mt-1 text-[12px] font-semibold text-success">{usd(m.price_sqm)}/m²</div>
                   )}
                 </div>
               </button>

@@ -61,8 +61,8 @@ export function MaterialDetailPage() {
       {showForm && material && <SlabForm material={material} onDone={() => setShowForm(false)} />}
 
       {isLoading ? (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => <div key={i} className="aspect-[3/4] animate-pulse rounded-2xl bg-white/30" />)}
+        <div className="space-y-2.5">
+          {Array.from({ length: 5 }).map((_, i) => <div key={i} className="h-[76px] animate-pulse rounded-xl bg-white/30" />)}
         </div>
       ) : slabs.length === 0 ? (
         <div className="glass rounded-2xl p-10 text-center">
@@ -71,35 +71,35 @@ export function MaterialDetailPage() {
           <p className="mt-1 text-body text-muted-foreground">{t("slab.emptyDesc")}</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="space-y-2.5">
           {slabs.map((s) => {
             const sqm = s.length_m && s.height_m ? areaSqm(s.length_m, s.height_m) : null;
             const price = s.price_sqm ?? material?.price_sqm ?? null;
             const value = sqm != null ? slabValue(sqm, price) : null;
             return (
-              <div key={s.id} className="glass group relative overflow-hidden rounded-2xl">
-                <div className="aspect-[3/4] overflow-hidden bg-secondary/40">
+              <div key={s.id} className="glass group flex items-center gap-3 rounded-xl p-2.5">
+                <div className="h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-secondary/40">
                   {s.photo_path ? (
-                    <img src={materialPhotoUrl(s.photo_path)} alt={s.code} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={materialPhotoUrl(s.photo_path)} alt={s.code} loading="lazy" className="h-full w-full object-cover" />
                   ) : (
-                    <div className="flex h-full items-center justify-center"><ImageOff className="h-7 w-7 text-muted-foreground" /></div>
+                    <div className="flex h-full items-center justify-center"><ImageOff className="h-5 w-5 text-muted-foreground" /></div>
                   )}
-                  <span className={`absolute right-2 top-2 rounded-full px-2 py-0.5 text-[10.5px] font-semibold ${statusCls[s.status]}`}>
-                    {t(`slab.status.${s.status}`)}
-                  </span>
                 </div>
-                <div className="p-3">
-                  <div className="text-[14px] font-bold text-foreground">{s.code}</div>
-                  {sqm != null && (
-                    <div className="mt-0.5 text-[11.5px] text-muted-foreground">
-                      {s.length_m} × {s.height_m} m · {fmtSqm(sqm)}
-                    </div>
-                  )}
-                  {value != null && <div className="mt-1 text-[13.5px] font-bold text-success">{usd(value)}</div>}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[14px] font-bold text-foreground">{s.code}</span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10.5px] font-semibold ${statusCls[s.status]}`}>
+                      {t(`slab.status.${s.status}`)}
+                    </span>
+                  </div>
+                  <div className="mt-0.5 text-[12px] text-muted-foreground">
+                    {s.length_m && s.height_m ? `${s.length_m} × ${s.height_m} m · ${fmtSqm(sqm)}` : t("slab.noMeasures")}
+                  </div>
                 </div>
+                {value != null && <span className="text-[14px] font-bold text-success">{usd(value)}</span>}
                 <button
                   onClick={() => { if (confirm(t("slab.confirmDelete"))) deleteSlab.mutate(s.id); }}
-                  className="absolute left-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-muted-foreground opacity-0 backdrop-blur transition-opacity hover:text-destructive group-hover:opacity-100"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-muted-foreground opacity-0 transition-opacity hover:text-destructive group-hover:opacity-100"
                   aria-label={t("slab.delete")}
                 >
                   <Trash2 className="h-4 w-4" />

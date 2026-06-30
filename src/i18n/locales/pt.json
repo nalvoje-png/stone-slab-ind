@@ -94,6 +94,7 @@
       "disponivel": "Disponível",
       "reservada": "Reservada",
       "vendida": "Vendida"
-    }
+    },
+    "noMeasures": "Sem medidas"
   }
 }
