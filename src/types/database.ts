@@ -32,3 +32,17 @@ export interface Slab {
   status: SlabStatus;
   created_at: string;
 }
+
+export type ClientStatus = "convidado" | "ativo" | "inativo";
+
+export interface Client {
+  id: string;
+  company_id: string;
+  name: string;
+  email: string;
+  company_name: string | null;
+  country: string | null;
+  status: ClientStatus;
+  buyer_user_id: string | null;
+  created_at: string;
+}

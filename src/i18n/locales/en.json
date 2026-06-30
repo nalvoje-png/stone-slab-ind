@@ -26,7 +26,8 @@
     "sales": "Sales",
     "orders": "Purchase orders",
     "team": "Team",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "clients": "Clients"
   },
   "dash": {
     "hello": "Hello",
@@ -96,5 +97,26 @@
       "vendida": "Sold"
     },
     "noMeasures": "No measures"
+  },
+  "clients": {
+    "title": "Clients",
+    "new": "New client",
+    "name": "Name",
+    "email": "Email",
+    "companyName": "Company",
+    "country": "Country",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirmDelete": "Delete this client?",
+    "inviteNote": "Sending the access invite will be enabled in the next step.",
+    "emptyTitle": "No clients yet",
+    "emptyDesc": "Register the buyers who will access your catalog.",
+    "status": {
+      "convidado": "Invited",
+      "ativo": "Active",
+      "inativo": "Inactive"
+    }
   }
 }

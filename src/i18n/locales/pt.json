@@ -26,7 +26,8 @@
     "sales": "Vendas",
     "orders": "Pedidos de compra",
     "team": "Equipe",
-    "signOut": "Sair"
+    "signOut": "Sair",
+    "clients": "Clientes"
   },
   "dash": {
     "hello": "Olá",
@@ -96,5 +97,26 @@
       "vendida": "Vendida"
     },
     "noMeasures": "Sem medidas"
+  },
+  "clients": {
+    "title": "Clientes",
+    "new": "Novo cliente",
+    "name": "Nome",
+    "email": "E-mail",
+    "companyName": "Empresa",
+    "country": "País",
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "confirmDelete": "Excluir este cliente?",
+    "inviteNote": "O envio do convite de acesso será habilitado na próxima etapa.",
+    "emptyTitle": "Nenhum cliente ainda",
+    "emptyDesc": "Cadastre os compradores que terão acesso ao seu catálogo.",
+    "status": {
+      "convidado": "Convidado",
+      "ativo": "Ativo",
+      "inativo": "Inativo"
+    }
   }
 }

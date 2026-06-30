@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { LayoutDashboard, Package, Layers, ShoppingCart, ClipboardList, Users, LogOut, type LucideIcon } from "lucide-react";
+import { LayoutDashboard, Package, Layers, ShoppingCart, ClipboardList, Users, UserPlus, LogOut, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/features/auth/hooks/useAuth";
 import { signOut } from "@/features/auth/api/auth.api";
@@ -14,6 +14,7 @@ const ITEMS: Item[] = [
   { key: "slabs", to: "/slabs", icon: Layers },
   { key: "sales", to: "/sales", icon: ShoppingCart },
   { key: "orders", to: "/orders", icon: ClipboardList },
+  { key: "clients", to: "/clients", icon: UserPlus },
   { key: "team", to: "/team", icon: Users },
 ];
 
