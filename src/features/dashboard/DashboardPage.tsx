@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Package, Layers, CheckCircle2, Clock, DollarSign, TrendingUp } from "lucide-react";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { useAuth } from "@/features/auth/hooks/useAuth";
+import { useDashboardStats } from "./hooks/useDashboardStats";
+import { usd } from "@/features/materials/lib/calc";
 
 const EMERALD = "#1E8E5A";
 const EMERALD_LIGHT = "#5CB98A";
@@ -22,25 +24,29 @@ export function DashboardPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
   const company = (user?.user_metadata?.company_name as string) ?? "";
+  const { data: stats, isLoading } = useDashboardStats();
+
+  const v = (n: number | undefined) => (isLoading || n == null ? "—" : String(n));
 
   const cards = [
-    { label: t("dash.materials"), value: "—", icon: Package, spark: [3, 5, 4, 6, 5, 7, 6], color: EMERALD },
-    { label: t("dash.slabs"), value: "—", icon: Layers, spark: [4, 3, 5, 4, 6, 5, 7], color: EMERALD },
-    { label: t("dash.available"), value: "—", icon: CheckCircle2, spark: [5, 4, 3, 4, 3, 2, 3], color: NEUTRAL },
-    { label: t("dash.reserved"), value: "—", icon: Clock, spark: [1, 2, 1, 3, 2, 3, 2], color: NEUTRAL },
+    { label: t("dash.materials"), value: v(stats?.materials), icon: Package, color: EMERALD },
+    { label: t("dash.slabs"), value: v(stats?.slabs), icon: Layers, color: EMERALD },
+    { label: t("dash.available"), value: v(stats?.available), icon: CheckCircle2, color: NEUTRAL },
+    { label: t("dash.reserved"), value: v(stats?.reserved), icon: Clock, color: NEUTRAL },
   ];
 
   const pieData = [
-    { name: t("dash.available"), value: 0, color: EMERALD },
-    { name: t("dash.reserved"), value: 0, color: EMERALD_LIGHT },
-    { name: t("dash.sold"), value: 0, color: NEUTRAL },
+    { name: t("dash.available"), value: stats?.available ?? 0, color: EMERALD },
+    { name: t("dash.reserved"), value: stats?.reserved ?? 0, color: EMERALD_LIGHT },
+    { name: t("dash.sold"), value: stats?.sold ?? 0, color: NEUTRAL },
   ];
   const hasPie = pieData.some((d) => d.value > 0);
+  const monthData = stats?.monthly ?? [];
+  const hasMonth = monthData.some((d) => d.v > 0);
 
-  const monthData = [
-    { m: "Jan", v: 0 }, { m: "Fev", v: 0 }, { m: "Mar", v: 0 },
-    { m: "Abr", v: 0 }, { m: "Mai", v: 0 }, { m: "Jun", v: 0 },
-  ];
+  // sparkline simples para os cards: usa a produção mensal como tendência
+  const trend = monthData.map((d) => d.v);
+  const spark = trend.length ? trend : [0, 0, 0, 0, 0, 0];
 
   return (
     <div className="animate-fade-up">
@@ -55,7 +61,9 @@ export function DashboardPage() {
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-white/90">
             <DollarSign className="h-3.5 w-3.5" /> {t("dash.sold")}
           </div>
-          <div className="mt-0.5 text-2xl font-extrabold text-white">$0.00</div>
+          <div className="mt-0.5 text-2xl font-extrabold text-white">
+            {isLoading ? "—" : usd(stats?.soldValue ?? 0)}
+          </div>
         </div>
         <TrendingUp className="h-8 w-8 text-white/40" />
       </div>
@@ -68,7 +76,7 @@ export function DashboardPage() {
             </div>
             <div className="mt-2 flex items-end justify-between">
               <div className="text-2xl font-extrabold text-foreground">{c.value}</div>
-              <Spark data={c.spark} color={c.color} />
+              <Spark data={spark} color={c.color} />
             </div>
           </div>
         ))}
@@ -91,6 +99,7 @@ export function DashboardPage() {
                 {pieData.map((d) => (
                   <div key={d.name} className="flex items-center gap-2 text-[13px] text-foreground">
                     <span className="h-3 w-3 rounded-full" style={{ background: d.color }} /> {d.name}
+                    <span className="font-semibold">{d.value}</span>
                   </div>
                 ))}
               </div>
@@ -105,17 +114,21 @@ export function DashboardPage() {
         <div className="glass rounded-2xl p-5">
           <h3 className="mb-1 text-title text-foreground">{t("dash.monthly")}</h3>
           <p className="mb-3 text-caption text-muted-foreground">{t("dash.monthlyDesc")}</p>
-          <ResponsiveContainer width="100%" height={160}>
-            <BarChart data={monthData}>
-              <XAxis dataKey="m" tick={{ fontSize: 12, fill: "#1e4853" }} axisLine={false} tickLine={false} />
-              <Tooltip cursor={{ fill: "rgba(255,255,255,0.3)" }} />
-              <Bar dataKey="v" radius={[4, 4, 0, 0]} fill={EMERALD} />
-            </BarChart>
-          </ResponsiveContainer>
+          {hasMonth ? (
+            <ResponsiveContainer width="100%" height={160}>
+              <BarChart data={monthData}>
+                <XAxis dataKey="m" tick={{ fontSize: 12, fill: "#1e4853" }} axisLine={false} tickLine={false} />
+                <Tooltip cursor={{ fill: "rgba(255,255,255,0.3)" }} />
+                <Bar dataKey="v" radius={[4, 4, 0, 0]} fill={EMERALD} />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="flex h-[160px] items-center justify-center rounded-2xl bg-white/40 text-caption text-muted-foreground">
+              {t("dash.noData")}
+            </div>
+          )}
         </div>
       </div>
-
-      <p className="mt-6 text-center text-caption text-white/70">{t("dash.soon")}</p>
     </div>
   );
 }
