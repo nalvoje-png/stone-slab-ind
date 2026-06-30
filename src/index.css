@@ -5,47 +5,79 @@
 
 @layer base {
   :root {
-    /* Tema CLARO — estilo Stone Block (ERP profissional) */
-    --background: 210 20% 98%;          /* #F7F9FA fundo geral cinza-claro */
-    --surface: 0 0% 100%;               /* branco */
-    --foreground: 222 47% 11%;          /* #0F172A texto escuro */
+    /* Visual turquesa com vidro (glassmorphism) */
+    --background: 188 70% 38%;          /* turquesa base */
+    --bg-from: 190 75% 42%;             /* degradê topo */
+    --bg-to: 196 80% 28%;              /* degradê base (mais profundo) */
+    --surface: 0 0% 100%;
+    --foreground: 200 30% 12%;          /* texto escuro p/ contraste sobre vidro claro */
+    --foreground-on-bg: 0 0% 100%;      /* texto branco direto sobre o fundo turquesa */
 
-    --card: 0 0% 100%;                  /* cards brancos */
-    --card-foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 30% 12%;
 
-    /* Topbar azul-marinho do Stone Block */
-    --topbar-from: 222 47% 16%;         /* #1A2740 */
-    --topbar-to: 221 60% 28%;           /* #1E3A6E */
+    /* Topbar azul-marinho (mantida do Stone Block) */
+    --topbar-from: 222 47% 16%;
+    --topbar-to: 221 60% 28%;
 
-    --primary: 221 83% 53%;             /* #2563EB azul vivo */
+    --primary: 200 90% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 214 95% 93%;        /* #DBEAFE */
+    --primary-soft: 195 80% 90%;
 
-    --secondary: 210 16% 95%;           /* #EEF1F4 */
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 190 30% 92%;
+    --secondary-foreground: 200 30% 12%;
 
-    --muted: 210 16% 95%;
-    --muted-foreground: 215 16% 47%;    /* #64748B cinza texto */
+    --muted: 190 30% 92%;
+    --muted-foreground: 200 16% 40%;
 
-    --accent: 214 95% 93%;
-    --accent-foreground: 221 83% 53%;
+    --accent: 195 80% 90%;
+    --accent-foreground: 200 90% 45%;
 
-    --success: 158 64% 34%;            /* #1E8E5A verde esmeralda */
-    --success-soft: 158 50% 94%;
-    --emerald: 160 84% 25%;            /* #0B7A4B esmeralda profundo */
-    --emerald-light: 152 55% 45%;      /* tom claro para gráficos */
+    --success: 152 58% 42%;
+    --success-soft: 152 50% 92%;
+    --emerald: 160 70% 38%;
+    --emerald-light: 152 55% 50%;
     --warning: 38 92% 50%;
-    --warning-soft: 38 92% 94%;
-    --destructive: 0 72% 51%;           /* #DC2626 */
-    --destructive-soft: 0 86% 96%;
+    --warning-soft: 38 92% 92%;
+    --destructive: 0 72% 55%;
+    --destructive-soft: 0 80% 94%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;              /* #DDE3EA bordas suaves */
-    --input: 214 20% 88%;
-    --ring: 221 83% 53%;
+    --border: 190 30% 85%;
+    --input: 190 30% 82%;
+    --ring: 200 90% 45%;
 
-    --radius: 0.75rem;
+    --radius: 1.25rem;
+
+    /* Vidro */
+    --glass-bg: 255 255 255;            /* base branca do vidro (usado com opacidade) */
+    --glass-border: 255 255 255;
   }
   * { border-color: hsl(var(--border)); }
-  body { background-color: hsl(var(--background)); color: hsl(var(--foreground)); -webkit-font-smoothing: antialiased; }
+  body {
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(160deg, hsl(var(--bg-from)), hsl(var(--bg-to)));
+    background-attachment: fixed;
+    min-height: 100dvh;
+  }
+}
+
+@layer components {
+  /* Card de vidro translúcido */
+  .glass {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(8, 50, 60, 0.18);
+  }
+  /* Vidro mais translúcido (decorativo) */
+  .glass-soft {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px rgba(8, 50, 60, 0.15);
+  }
 }

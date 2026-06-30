@@ -14,10 +14,13 @@ const ITEMS = [
 export function MobileBar() {
   const { t } = useTranslation();
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 flex border-t border-border bg-surface lg:hidden">
+    <nav className="glass fixed inset-x-3 bottom-3 z-40 flex rounded-2xl px-1 py-1 lg:hidden">
       {ITEMS.map(({ key, to, icon: Icon }) => (
         <NavLink key={key} to={to} end={to === "/"}
-          className={({ isActive }) => cn("flex flex-1 flex-col items-center gap-1 py-2.5", isActive ? "text-primary" : "text-muted-foreground")}>
+          className={({ isActive }) => cn(
+            "flex flex-1 flex-col items-center gap-1 rounded-xl py-2",
+            isActive ? "bg-primary/15 text-primary" : "text-muted-foreground"
+          )}>
           <Icon className="h-[22px] w-[22px]" />
           <span className="text-[10px] font-semibold">{t(`nav.${key}`)}</span>
         </NavLink>

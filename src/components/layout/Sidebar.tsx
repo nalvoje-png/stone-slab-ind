@@ -30,7 +30,7 @@ export function Sidebar() {
   const company = (user?.user_metadata?.company_name as string) ?? user?.email ?? "";
 
   return (
-    <aside className="fixed inset-y-0 left-0 top-16 hidden w-64 flex-col border-r border-border bg-surface lg:flex">
+    <aside className="glass fixed inset-y-3 left-3 top-[76px] hidden w-60 flex-col rounded-3xl lg:flex">
       <div className="px-5 pb-2 pt-5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
         {t("nav.menu", "Menu")}
       </div>
